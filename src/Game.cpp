@@ -6,7 +6,7 @@ Game::Game()
 {
 	mainWindow = nullptr;
 	mainRenderer = nullptr;
-	isGameRunning = false;
+	isGameRunning = false; //Bool to check if the game's running
 }
 
 Game::~Game()
@@ -27,15 +27,29 @@ bool Game::init(const char* inGameTitle, int inWidth, int inHeight, int inFlags)
 			
 			mainRenderer = SDL_CreateRenderer(mainWindow, -1, SDL_RENDERER_ACCELERATED);
 			if(mainRenderer != nullptr)
+			{
 				Logger::note("SDL Renderer created successfully!");
+				SDL_SetRenderDrawColor(mainRenderer, 255, 255, 255, 255); //Set the renderer color to white
+			}
+			else
+			{
+				Logger::error("SDL Renderer was failed to be created!");
+				return false;
+			}
+		}
+		else
+		{
+			Logger::error("SDL Window was failed to be created!");
+			return false;
 		}
 	}
 	else
 	{
-		//SDL could not initialize Video & Audio
+		Logger::error("SDL Video & Audio could not be initialized!");
 		return false;
 	}
 	
+	Logger::note("SDL is completely loaded.");
 	isGameRunning = true;
 	gameTitle = inGameTitle;
 	width = inWidth;
@@ -47,3 +61,4 @@ bool Game::isRunning()
 {
 	return isGameRunning;
 }
+
