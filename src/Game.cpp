@@ -50,10 +50,14 @@ bool Game::init(const char* inGameTitle, int inWidth, int inHeight, int inFlags)
 	}
 	
 	Logger::note("SDL is completely loaded.");
-	isGameRunning = true;
+	isGameRunning = true; //Everything is alright
+	
+	//Now set the game window specifications
 	gameTitle = inGameTitle;
 	width = inWidth;
 	height = inHeight;
+	
+	//We're done here
 	return true;
 }
 
@@ -62,3 +66,13 @@ bool Game::isRunning()
 	return isGameRunning;
 }
 
+void Game::render()
+{
+	//Clear out the renderer
+	SDL_RenderClear(mainRenderer);
+	
+	//TODO: Draw here
+	
+	//Draw to the renderer
+	SDL_RenderPresent(mainRenderer);
+}
