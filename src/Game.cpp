@@ -84,3 +84,24 @@ void Game::clean()
 	SDL_DestroyWindow(mainWindow);
 	SDL_Quit();
 }
+
+void Game::handleEvents()
+{
+	//Create an event handler
+	SDL_Event event;
+	
+	//Check for the events from the last frame
+	if(SDL_PollEvent(&event))
+	{
+		switch (event.type)
+		{
+			//In case the user has quited the game
+			case SDL_QUIT:
+				isGameRunning = false;
+				Game::clean();
+				break;
+			default:
+				break;
+		}
+	}
+}
