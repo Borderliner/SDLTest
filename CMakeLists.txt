@@ -9,8 +9,14 @@ find_package(SDL2 REQUIRED)
 
 # Add global definitions
 add_definitions("-Wall")
-include_directories(${SDL2_INCLUDE_DIR})
+add_definitions("-std=c++11")
+add_definitions("-g")
 
-add_executable(sdltest main.c)
+include_directories(${SDL2_INCLUDE_DIR})
+include_directories(src)
+
+add_executable(sdltest main.cpp)
 install(TARGETS sdltest DESTINATION bin)
 target_link_libraries(sdltest ${SDL2_LIBRARIES})
+
+add_subdirectory(src)
