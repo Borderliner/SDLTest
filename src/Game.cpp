@@ -76,3 +76,11 @@ void Game::render()
 	//Draw to the renderer
 	SDL_RenderPresent(mainRenderer);
 }
+
+void Game::clean()
+{
+	Logger::note("Clearing the game from memory...");
+	SDL_DestroyRenderer(mainRenderer);
+	SDL_DestroyWindow(mainWindow);
+	SDL_Quit();
+}
