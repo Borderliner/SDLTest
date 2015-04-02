@@ -1,4 +1,4 @@
-====Compilation===
+# Compiling the Project
 To compile the project, go to the "Compile" folder and run "compile.sh".<br>
 If you want to compile it manually, do the following:<br>
 <br>
