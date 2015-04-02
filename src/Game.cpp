@@ -15,6 +15,8 @@ Game::~Game()
 
 bool Game::init(const char* inGameTitle, int inWidth, int inHeight, int inFlags)
 {
+	Logger::stampDate(); //Stamp the date of this run in Logger.log
+
 	if(SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) >= 0)
 	{
 		
@@ -55,9 +57,7 @@ bool Game::init(const char* inGameTitle, int inWidth, int inHeight, int inFlags)
 	gameTitle = inGameTitle;
 	width = inWidth;
 	height = inHeight;
-	
-	Logger::stampDate(); //Stamp the date of this run in Logger.log
-	
+		
 	//We're done here
 	return true;
 }
