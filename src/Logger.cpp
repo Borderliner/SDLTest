@@ -1,6 +1,6 @@
 #include "Logger.h"
 
-std::ofstream* Logger::fileOut = new std::ofstream("Logger.log", std::ios::out);
+std::ofstream* Logger::fileOut = new std::ofstream("Logger.log", std::ios::out | std::ios::app);
 
 Logger::Logger()
 {
