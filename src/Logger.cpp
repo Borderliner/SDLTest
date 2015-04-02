@@ -15,7 +15,7 @@ Logger::~Logger()
 void Logger::warning(std::string message)
 {
 	std::cout<<"WARNING -> "<<message<<std::endl;
-	fileOut.open("Logger.log", std::ios::out | std::ios::app);
+	fileOut->open("Logger.log", std::ios::out | std::ios::app);
 	*fileOut<<"WARNING -> "<<message<<std::endl;
 	fileOut->close();
 }
