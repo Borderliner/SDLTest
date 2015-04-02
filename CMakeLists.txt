@@ -15,8 +15,12 @@ add_definitions("-g")
 include_directories(${SDL2_INCLUDE_DIR})
 include_directories(src)
 
-add_executable(sdltest main.cpp)
+set(HEADER_FILES src/Game.h
+			src/Logger.h)
+			
+set(SOURCES src/Game.cpp
+			src/Logger.cpp)
+
+add_executable(sdltest main.cpp ${HEADER_FILES} ${SOURCES})
 install(TARGETS sdltest DESTINATION bin)
 target_link_libraries(sdltest ${SDL2_LIBRARIES})
-
-add_subdirectory(src)
