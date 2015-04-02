@@ -48,4 +48,5 @@ void Logger::stampDate()
 	*fileOut<<":"<< 1 + ltm->tm_min; //Prints out the minute
 	*fileOut<<":"<< 1 + ltm->tm_sec; //Prints out the seconds
 	*fileOut<<std::endl<<"----------------------------------------"<<std::endl; //Insert 40 dashes
+	fileOut->close();
 }
