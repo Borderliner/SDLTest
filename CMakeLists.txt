@@ -13,14 +13,14 @@ add_definitions("-std=c++11")
 add_definitions("-g")
 
 include_directories(${SDL2_INCLUDE_DIR})
-include_directories(src)
+include_directories(src/Game)
 
-set(HEADER_FILES src/Game.h
-			src/Logger.h)
+set(HEADER_FILES src/Game/Game.h
+			src/Game/Logger.h)
 			
-set(SOURCES src/Game.cpp
-			src/Logger.cpp)
+set(SOURCES src/Game/Game.cpp
+			src/Game/Logger.cpp)
 
-add_executable(sdltest main.cpp ${HEADER_FILES} ${SOURCES})
+add_executable(sdltest src/main.cpp ${HEADER_FILES} ${SOURCES})
 install(TARGETS sdltest DESTINATION bin)
 target_link_libraries(sdltest ${SDL2_LIBRARIES})
