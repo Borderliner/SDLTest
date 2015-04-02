@@ -3,7 +3,7 @@
 
 int main(int argc, char** argv)
 {
-	Game game();
+	Game game;
 	game.init("My Game", 800, 600, SDL_WINDOW_SHOWN);
 	while(game.isRunning())
 	{
