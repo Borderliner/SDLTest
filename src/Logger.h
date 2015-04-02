@@ -2,18 +2,19 @@
 #define LOGGER_H
 #include <iostream>
 #include <fstream>
+#include <string>
 
 class Logger
 {
 public:
 	Logger();
 	~Logger();
-	static std::ostream& warning(std::string message);
-	static std::ostream& note(std::string message);
-	static std::ostream& error(std::string message);
+	static void warning(std::string message);
+	static void note(std::string message);
+	static void error(std::string message);
 	
 private:
-	std::ofstream fileOut("./Logger.txt");
+	static std::ofstream* fileOut;
 };
 
 #endif // LOGGER_H
