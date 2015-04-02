@@ -13,9 +13,10 @@ public:
 	static void warning(std::string message);
 	static void note(std::string message);
 	static void error(std::string message);
+	static void stampDate();
+
 	
 private:
-	static void stampDate();
 	static std::ofstream* fileOut;
 };
 
