@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <ctime>
 
 class Logger
 {
@@ -14,6 +15,7 @@ public:
 	static void error(std::string message);
 	
 private:
+	static void stampDate();
 	static std::ofstream* fileOut;
 };
 
