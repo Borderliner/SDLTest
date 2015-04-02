@@ -1,5 +1,4 @@
 #include "Game.h"
-#include <SDL.h>
 #include "Logger.h"
 
 Game::Game()
@@ -57,6 +56,8 @@ bool Game::init(const char* inGameTitle, int inWidth, int inHeight, int inFlags)
 	width = inWidth;
 	height = inHeight;
 	
+	Logger::stampDate(); //Stamp the date of this run in Logger.log
+	
 	//We're done here
 	return true;
 }
@@ -104,4 +105,9 @@ void Game::handleEvents()
 				break;
 		}
 	}
+}
+
+void Game::update()
+{
+	
 }
