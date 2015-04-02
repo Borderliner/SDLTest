@@ -1,8 +1,10 @@
 #include "Logger.h"
 
+std::ofstream* Logger::fileOut = new std::ofstream("Logger.log", std::ios::out);
+
 Logger::Logger()
 {
-
+	
 }
 
 Logger::~Logger()
@@ -10,29 +12,26 @@ Logger::~Logger()
 
 }
 
-std::ostream& Logger::warning(std::string message)
+void Logger::warning(std::string message)
 {
-	std::ostream& output;
-	output<<"WARNING -> "<<message<<std::endl;
-	fileOut.open("./Logger.txt", std::ofstream::out | std::ofstream::app);
-	fileOut<<"WARNING -> "<<message<<std::endl;
-	return output;
+	std::cout<<"WARNING -> "<<message<<std::endl;
+	fileOut.open("Logger.log", std::ios::out | std::ios::app);
+	*fileOut<<"WARNING -> "<<message<<std::endl;
+	fileOut->close();
 }
 
-std::ostream& Logger::note(std::string message)
+void Logger::note(std::string message)
 {
-	std::ostream& output;
-	output<<"Note -> "<<message<<std::endl;
-	fileOut.open("./Logger.txt", std::ofstream::out | std::ofstream::app);
-	fileOut<<"Note -> "<<message<<std::endl;
-	return output;
+	std::cout<<"Note -> "<<message<<std::endl;
+	fileOut->open("Logger.log", std::ios::out | std::ios::app);
+	*fileOut<<"Note -> "<<message<<std::endl;
+	fileOut->close();
 }
 
-std::ostream& Logger::error(std::string message)
+void Logger::error(std::string message)
 {
-	std::ostream& output;
-	output<<"ERROR -> "<<message<<std::endl;
-	fileOut.open("./Logger.txt", std::ofstream::out | std::ofstream::app);
-	fileOut<<"ERROR -> "<<message<<std::endl;
-	return output;
+	std::cout<<"ERROR -> "<<message<<std::endl;
+	fileOut->open("Logger.log", std::ios::out | std::ios::app);
+	*fileOut<<"ERROR -> "<<message<<std::endl;
+	fileOut->close();
 }
