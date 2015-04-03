@@ -7,7 +7,7 @@ class Game
 public:
 	Game();
 	~Game();
-	bool init(const char* inGameTitle, int inWidth, int inHeight, int inFlags);
+	bool init(const char* inGameTitle, int inWidth, int inHeight, bool inFullscreen);
 	void handleEvents();
 	void update();
 	void render();
