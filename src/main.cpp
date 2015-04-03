@@ -4,7 +4,7 @@
 int main(int argc, char** argv)
 {
 	Game game;
-	game.init("My Game", 800, 600, SDL_WINDOW_SHOWN);
+	game.init("My Game", 800, 600, false);
 	while(game.isRunning())
 	{
 		game.handleEvents();
