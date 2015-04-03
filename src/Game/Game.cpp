@@ -13,7 +13,7 @@ Game::~Game()
 
 }
 
-bool Game::init(const char* inGameTitle, int inWidth, int inHeight, int inFlags)
+bool Game::init(const char* inGameTitle, int inWidth, int inHeight, bool inFullscreen)
 {
 	Logger::stampDate(); //Stamp the date of this run in Logger.log
 
@@ -21,7 +21,13 @@ bool Game::init(const char* inGameTitle, int inWidth, int inHeight, int inFlags)
 	{
 		
 		Logger::note("SDL Video & Audio initialized successfully!");
-		mainWindow = SDL_CreateWindow(inGameTitle, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, inWidth, inHeight, inFlags);
+		
+		//Check if it's fullscreen and set the flags for SDL_CreateWindow
+		int flags = 0;
+		if(inFullscreen)
+			flags = SDL_WINDOW_FULLSCREEN;
+		
+		mainWindow = SDL_CreateWindow(inGameTitle, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, inWidth, inHeight, flags);
 		
 		if(mainWindow != nullptr){
 			Logger::note("SDL Window created successfully!");
