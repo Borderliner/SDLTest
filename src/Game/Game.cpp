@@ -99,7 +99,6 @@ void Game::handleEvents()
 			//In case the user has quited the game
 			case SDL_QUIT:
 				isGameRunning = false;
-				Game::clean();
 				break;
 			default:
 				break;
