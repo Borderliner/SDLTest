@@ -17,6 +17,10 @@ public:
 private:
 	SDL_Window* mainWindow;
 	SDL_Renderer* mainRenderer;
+	SDL_Texture* playerTexture;
+	SDL_Rect sourceRect;
+	SDL_Rect destRect;
+	
 	bool isGameRunning;
 	const char* gameTitle;
 	int width;
