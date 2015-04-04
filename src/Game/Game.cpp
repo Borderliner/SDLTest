@@ -63,7 +63,17 @@ bool Game::init(const char* inGameTitle, int inWidth, int inHeight, bool inFulls
 	gameTitle = inGameTitle;
 	width = inWidth;
 	height = inHeight;
-		
+	
+	SDL_Surface* tempSurface = SDL_LoadBMP("Assets/Sprites/cowboyanim.bmp");
+	playerTexture = SDL_CreateTextureFromSurface(mainRenderer, tempSurface);
+	
+	sourceRect.w = 128;
+	sourceRect.h = 82;
+	sourceRect.x = destRect.x = 0;
+	sourceRect.y = destRect.y = 0;
+	destRect.w = 128;
+	destRect.h = 82;
+	
 	//We're done here
 	return true;
 }
@@ -79,6 +89,7 @@ void Game::render()
 	SDL_RenderClear(mainRenderer);
 	
 	//TODO: Draw here
+	SDL_RenderCopy(mainRenderer, playerTexture, &sourceRect, &destRect);
 	
 	//Draw to the renderer
 	SDL_RenderPresent(mainRenderer);
